@@ -7,6 +7,18 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  private numReviews: number;
+  private numBookings: number;
+  private location: string;
+  private firstName: string;
+  private lastName: string;
+
+  constructor() {
+    this.numReviews = 2;
+    this.numBookings = 2;
+    this.location = "the United States";
+    this.firstName = "Jacob";
+    this.lastName = "Begemann";
+  }
 
 }
