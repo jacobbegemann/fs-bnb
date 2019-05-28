@@ -1,0 +1,27 @@
+.content-area {
+  width: 50%;
+  display: inline-block;
+  text-align: left;
+}
+
+.content-parent {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.block {
+  display: block;
+}
+
+img {
+  padding: 5% 0%;
+}
+
+ion-card {
+  width: 30%;
+  margin: 5%;
+}
+
+ion-card:hover {
+  box-shadow: 0 8px 6px -6px black;
+}
