@@ -1,15 +1,16 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { Tab5Page } from './tab5.page';
+
+import { RentalPage } from './rental.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: Tab5Page
+    component: RentalPage
   }
 ];
 
@@ -18,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
-  declarations: [Tab5Page],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [RentalPage]
 })
-export class Tab5PageModule { }
+export class RentalPageModule {}

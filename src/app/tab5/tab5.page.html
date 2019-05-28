@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab5</ion-title>
+    <ion-title>Explore</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,8 +10,18 @@
       <h3>Your upcoming trips</h3>
       <ion-item-divider></ion-item-divider>
       <div class="trips-area">
+        <ion-card (click)="goToRental()">
+          <ion-card-header>
+            <ion-card-subtitle>March 5-10</ion-card-subtitle>
+            <img src="assets/2L6A5804-HDR-Mail-altrd_1_-_small.webp">
+            <ion-card-title>Massachusetts</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            A nice home in suburban Mass...
+          </ion-card-content>
+        </ion-card>
       </div>
-      <ion-button expand="block" id="find-homes">Explore</ion-button>
+      <ion-button expand="block" id="find-homes" (click)="goToExplore()">Explore</ion-button>
     </div>
   </div>
 </ion-content>
