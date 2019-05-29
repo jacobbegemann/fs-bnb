@@ -10,9 +10,20 @@
   <div class="content-parent">
     <div class="content-area">
       <h3>Your inbox</h3>
-      <p>You have no new messages.</p>
+      <p id="nnm">You have {{messages.length}} new messages.</p>
       <ion-item-divider></ion-item-divider>
       <div class="messages-area">
+        <ion-list>
+          <ion-card *ngFor="let message of messages">
+            <ion-card-header>
+              <ion-card-subtitle>{{message.time}}</ion-card-subtitle>
+              <ion-card-title>{{message.sender.firstName}} {{message.sender.lastName}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              {{message.text}}
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
       </div>
       <ion-button expand="block" id="find-homes">New Conversation</ion-button>
     </div>

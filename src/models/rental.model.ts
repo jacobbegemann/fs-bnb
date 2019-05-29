@@ -6,4 +6,14 @@ export class Rental {
     private hostName: string,
     private price: string) {}
 
+    getLocation() { return this.location; }
+
+    getPictureSources() { return this.pictureSources; }
+
+    getCoverPhoto() { return this.pictureSources[0]; }
+
+    getHostName() { return this.hostName; }
+
+    getPrice() { return this.price; }
+
 }

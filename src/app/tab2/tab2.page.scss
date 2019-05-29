@@ -17,3 +17,14 @@
   height: 24em;
   overflow-y: scroll;
 }
+
+ion-card {
+  width: 15em;
+  margin: 1em 0;
+  height: 24.6em;
+  overflow-y: scroll;
+}
+
+ion-card:hover {
+  box-shadow: 0 8px 6px -6px black;
+}

@@ -1,9 +1,14 @@
 import { UserReview } from './user-review.model';
+import { Rental } from './rental.model';
+import { Message } from './message.model';
 
 export class User {
 
   private numBookings: number;
   private reviews: Array<UserReview>;
+  private bookings: Array<Rental>;
+  private saved: Array<Rental>;
+  private messages: Array<Message>;
 
   constructor(private username: string, 
     private password: string,
@@ -16,10 +21,21 @@ export class User {
     private location: string) {
       this.numBookings = 0;
       this.reviews = new Array();
+      this.bookings = new Array();
+      this.saved = new Array();
+      this.messages = new Array();
     }
 
     addReview(review: UserReview) {
       this.reviews.push(review);
+    }
+
+    saveHome(home: Rental) {
+      this.saved.push(home);
+    }
+
+    recieveMessage(message: Message) {
+      this.messages.push(message);
     }
 
     setPhoto(url: string) { this.photoSource = url; }
@@ -45,5 +61,11 @@ export class User {
     getLocation() { return this.location; }
 
     getReviews() { return this.reviews; }
+
+    getBookings() { return this.bookings; }
+
+    getSaved() { return this.saved; }
+
+    getMessages() { return this.messages; }
 
 }
