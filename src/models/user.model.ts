@@ -2,7 +2,7 @@ import { Review } from './review.model';
 
 export class User {
 
-  constructor(private username: string,
+  constructor(private username: string, 
     private password: string,
     private firstName: string,
     private lastName: string,
