@@ -12,14 +12,15 @@ export class User {
     private yearJoined: number,
     private numBookings: number,
     private location: string,
-    private reviews: Array<Review>) {}
+    private reviews: Array<Review>) {
+    }
 
     setPhoto(url: string) { this.photoSource = url; }
 
     getUsername() { return this.username; }
 
     getPassword() { return this.password; }
-
+    
     getFirstName() { return this.firstName; }
 
     getLastName() { return this.lastName; }

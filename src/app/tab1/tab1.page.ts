@@ -24,7 +24,6 @@ export class Tab1Page {
     this.location = user.getLocation();
     this.firstName = user.getFirstName();
     this.lastName = user.getLastName();
-    user.setPhoto("assets/631929649c.svg");
     this.photoSource = user.getPhotoSource();
     this.yearJoined = user.getYearJoined();
   }

@@ -33,7 +33,7 @@ export class RegisterPage implements OnInit {
         firstName, 
         lastName,
         birthday, 
-        phone, "", 
+        phone, "assets/631929649c.svg", 
         (new Date()).getFullYear(), 0,
         "United States",
         new Array()));
