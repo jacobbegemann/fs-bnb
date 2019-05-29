@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { User } from 'src/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  doLogin() { this.navctrl.navigateForward('/tabs/tab4'); }
+  doLogin() { 
+    this.navctrl.navigateForward('/tabs/tab4');
+  }
 
 }
