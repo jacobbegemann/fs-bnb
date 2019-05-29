@@ -18,8 +18,10 @@ img {
 }
 
 ion-card {
-  width: 30%;
-  margin: 5%;
+  width: 15em;
+  margin: 1em 0;
+  height: 24.6em;
+  overflow-y: scroll;
 }
 
 ion-card:hover {
