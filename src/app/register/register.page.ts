@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
   }
 
   doRegistration() { 
-    this.navctrl.navigateForward('/tabs/tab1');
+    this.navctrl.navigateForward('/tabs/tab4');
   }
 
 }
