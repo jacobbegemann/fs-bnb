@@ -1,6 +1,9 @@
-import { Review } from './review.model';
+import { UserReview } from './user-review.model';
 
 export class User {
+
+  private numBookings: number;
+  private reviews: Array<UserReview>;
 
   constructor(private username: string, 
     private password: string,
@@ -10,9 +13,13 @@ export class User {
     private phone: string,
     private photoSource: string,
     private yearJoined: number,
-    private numBookings: number,
-    private location: string,
-    private reviews: Array<Review>) {
+    private location: string) {
+      this.numBookings = 0;
+      this.reviews = new Array();
+    }
+
+    addReview(review: UserReview) {
+      this.reviews.push(review);
     }
 
     setPhoto(url: string) { this.photoSource = url; }
