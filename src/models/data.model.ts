@@ -8,7 +8,18 @@ export class Data {
 
   constructor() {
     this.users = new Array();
+    this.users.push(
+      new User(
+        "example", "password", "John",
+        "Doe", "01/01/1900", "1234567890",
+        "assets/gettyimages-985138634-612x612.jpg",
+         2010, 5, "New York", new Array())
+    );
     this.rentals = new Array();
+  }
+
+  peekUser(): User {
+    return this.users[this.users.length - 1];
   }
 
   addUser(user: User) {

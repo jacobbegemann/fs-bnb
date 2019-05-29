@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from 'src/models/user.model';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-tab1',
@@ -12,13 +14,19 @@ export class Tab1Page {
   private location: string;
   private firstName: string;
   private lastName: string;
+  private photoSource: string;
+  private yearJoined: number;
 
-  constructor() {
-    this.numReviews = 2;
-    this.numBookings = 2;
-    this.location = "the United States";
-    this.firstName = "Jacob";
-    this.lastName = "Begemann";
+  constructor(private dataService: DataService) {
+    const user: User = dataService.getData().peekUser();
+    this.numReviews = user.getReviews().length;
+    this.numBookings = user.getNumBookings();
+    this.location = user.getLocation();
+    this.firstName = user.getFirstName();
+    this.lastName = user.getLastName();
+    user.setPhoto("assets/631929649c.svg");
+    this.photoSource = user.getPhotoSource();
+    this.yearJoined = user.getYearJoined();
   }
 
 }
