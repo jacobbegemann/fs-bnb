@@ -9,8 +9,9 @@
 <ion-content>
   <div class="login-parent">
     <div class="login-area">
-      <ion-input placeholder="Username..."></ion-input>
-      <ion-input placeholder="Password..." type="password" id="password-field"></ion-input>
+      <ion-label id="warning" style="visibility: hidden">Incorrect username/password combination</ion-label>
+      <ion-input placeholder="Username..." id="username-field" [(ngModel)]="username"></ion-input>
+      <ion-input placeholder="Password..." type="password" id="password-field" [(ngModel)]="password"></ion-input>
       <ion-button expand="block" (click)="doLogin()">Login</ion-button>
       <a href="/register">Register</a>
     </div>

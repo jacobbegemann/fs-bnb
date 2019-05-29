@@ -14,4 +14,12 @@ export class User {
     private location: string,
     private reviews: Array<Review>) {}
 
+    getUsername() {
+      return this.username;
+    }
+
+    getPassword() {
+      return this.password;
+    }
+
 }
