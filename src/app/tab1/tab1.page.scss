@@ -1,6 +1,7 @@
 .content-area {
-  width: 50%;
+  min-width: 50%;
   display: inline-block;
+  margin: 0% 10%;
 }
 
 .content-parent {
@@ -40,3 +41,4 @@ ion-card {
 ion-card:hover {
   box-shadow: 0 8px 6px -6px black;
 } 
+
