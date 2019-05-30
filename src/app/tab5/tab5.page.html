@@ -10,14 +10,14 @@
       <h3>Your upcoming trips</h3>
       <ion-item-divider></ion-item-divider>
       <div class="trips-area">
-        <ion-card (click)="goToRental()">
+        <ion-card *ngFor="let trip of trips" (click)="goToRental(trip)">
           <ion-card-header>
-            <ion-card-subtitle>March 5-10</ion-card-subtitle>
-            <img src="assets/2L6A5804-HDR-Mail-altrd_1_-_small.webp">
-            <ion-card-title>Massachusetts</ion-card-title>
+            <ion-card-subtitle>{{trip.dates}}</ion-card-subtitle>
+            <img src="{{trip.rental.getCoverPhoto()}}">
+            <ion-card-title>{{trip.rental.location}}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            A nice home in suburban Mass...
+            {{trip.rental.name}}
           </ion-card-content>
         </ion-card>
       </div>

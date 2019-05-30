@@ -2,11 +2,13 @@ import { User } from './user.model';
 import { Rental } from './rental.model';
 import { UserReview } from './user-review.model';
 import { Message } from './message.model';
+import { Trip } from './trip.model';
 
 export class Data {
 
   private users: Array<User>;
   private rentals: Array<Rental>;
+  private rentalID: number = 0;
 
   constructor() {
     this.users = new Array();
@@ -23,7 +25,9 @@ export class Data {
   }
 
   addRental(rental: Rental) {
+    rental.id = this.rentalID;
     this.rentals.push(rental);
+    this.rentalID++;
   }
 
   validate(username: string, password: string): boolean {
@@ -46,18 +50,18 @@ export class Data {
 
   addDummyData() {
     const johnDoe = new User(
-      "example", "password", "John",
+      "example", "password", "example@email.com", "John",
       "Doe", "01/01/1900", "1234567890",
       "assets/gettyimages-985138634-612x612.jpg",
       2010, "New York");
     const janeSmith = new User(
-      "example", "password", "Jane",
+      "example", "password", "example@email.com", "Jane",
       "Smith", "01/01/1900", "1234567890",
       "assets/gettyimages-985138634-612x612.jpg",
       2010, "New York"
     );
     const bobDylan = new User(
-      "example", "password", "Bob",
+      "example", "password", "example@email.com", "Bob",
       "Dylan", "01/01/1900", "1234567890",
       "assets/gettyimages-985138634-612x612.jpg",
       2010, "New York"
@@ -73,14 +77,18 @@ export class Data {
       "A nice home in suburban MA...",
       "Norwood, Massachusetts",
       ["assets/2L6A5804-HDR-Mail-altrd_1_-_small.webp"],
-      "Alice Jones",
+      janeSmith,
       "$50/night"
     );
+    this.addRental(save1);
     johnDoe.saveHome(save1);
     const message1 = new Message(
       janeSmith, johnDoe, "Hello there! Welcome to fs-bnb.", "10:00"
     );
     johnDoe.recieveMessage(message1);
+    johnDoe.addBooking(new Trip("March 5-10", save1));
   }
+
+  getRentals() { return this.rentals; }
 
 }

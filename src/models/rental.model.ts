@@ -1,9 +1,13 @@
+import { User } from './user.model';
+
 export class Rental {
+
+  public id: number;
 
   constructor(private name: string, 
     private location: string,
     private pictureSources: Array<string>,
-    private hostName: string,
+    private host: User,
     private price: string) {}
 
     getLocation() { return this.location; }
@@ -12,8 +16,11 @@ export class Rental {
 
     getCoverPhoto() { return this.pictureSources[0]; }
 
-    getHostName() { return this.hostName; }
+    getHost() { return this.host; }
 
     getPrice() { return this.price; }
 
+    getName() { return this.name; }
+
+    getEmail() { return this.host.getEmail(); }
 }

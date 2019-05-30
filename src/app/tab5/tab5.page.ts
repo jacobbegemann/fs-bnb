@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Trip } from 'src/models/trip.model';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-tab5',
@@ -8,14 +10,19 @@ import { NavController } from '@ionic/angular';
 })
 export class Tab5Page implements OnInit {
 
-  constructor(private navctrl: NavController) { }
+  public trips: Array<Trip>;
 
-  ngOnInit() {
-
+  constructor(private navctrl: NavController, 
+    private dataService: DataService) { 
+    this.trips = dataService.getData().peekUser().getBookings();
   }
 
-  goToRental() {
-    this.navctrl.navigateForward('/rental');
+  ngOnInit() {
+  }
+
+  goToRental(trip: Trip) {
+    this.navctrl.navigateForward('/rental',
+     {queryParams: {rentalID: trip.getRental().id}});
   }
 
   goToExplore() {
