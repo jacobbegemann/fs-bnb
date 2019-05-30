@@ -23,4 +23,11 @@ export class Tab2Page {
     this.navctrl.navigateForward('tabs/tab4');
   }
 
+  goToRental(rental: Rental) {
+    this.navctrl.navigateForward(
+      'rental',
+      {queryParams: {rentalID: rental.id}}
+    );
+  }
+
 }

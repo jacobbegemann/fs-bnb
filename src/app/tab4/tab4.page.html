@@ -10,16 +10,15 @@
       <h3>Explore Homes</h3>
       <ion-item-divider></ion-item-divider>
       <ion-list>
-        <ion-item>
-          <ion-card>
+        <ion-item *ngFor="let item of rentals"> 
+          <ion-card (click)="goToRental(item)">
             <ion-card-header>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-              <img src="assets/2L6A5804-HDR-Mail-altrd_1_-_small.webp">
-              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>{{item.host.firstName}} {{item.host.lastName}}</ion-card-subtitle>
+              <img src="{{item.getCoverPhoto()}}">
+              <ion-card-title>{{item.location}}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+              {{item.name}}
             </ion-card-content>
           </ion-card>
         </ion-item>
