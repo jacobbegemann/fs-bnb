@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { User } from 'src/models/user.model';
 
 @Component({
@@ -29,13 +29,16 @@ export class RegisterPage implements OnInit {
     if (!taken) {
       this.data.getData().addUser(new User(
         username, 
-        password, 
+        password,
+        email, 
         firstName, 
         lastName,
         birthday, 
-        phone, "assets/631929649c.svg", 
+        phone, 
+        "assets/631929649c.svg", 
         (new Date()).getFullYear(),
-        "United States"));
+        "United States"
+      ));
       this.navctrl.navigateForward('/tabs/tab4');
     }
   }

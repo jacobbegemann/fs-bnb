@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/models/user.model';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 import { Message } from 'src/models/message.model';
 
 @Component({
