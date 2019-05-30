@@ -34,9 +34,8 @@ export class RegisterPage implements OnInit {
         lastName,
         birthday, 
         phone, "assets/631929649c.svg", 
-        (new Date()).getFullYear(), 0,
-        "United States",
-        new Array()));
+        (new Date()).getFullYear(),
+        "United States"));
       this.navctrl.navigateForward('/tabs/tab4');
     }
   }
