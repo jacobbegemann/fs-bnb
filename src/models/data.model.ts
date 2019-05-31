@@ -11,7 +11,6 @@ export class Data {
   private rentalID: number = 0;
 
   constructor() {
-    const hello: string = "hello";
     this.users = new Array();
     this.rentals = new Array();
     this.addDummyData();
