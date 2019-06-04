@@ -51,20 +51,14 @@ export class Data {
   addDummyData() {
     const johnDoe = new User(
       "example", "password", "example@email.com", "John",
-      "Doe", "01/01/1900", "1234567890",
-      "assets/gettyimages-985138634-612x612.jpg",
-      2010, "New York");
+      "Doe", "01/01/1900", "1234567890", "New York");
     const janeSmith = new User(
       "example", "password", "example@email.com", "Jane",
-      "Smith", "01/01/1900", "1234567890",
-      "assets/gettyimages-985138634-612x612.jpg",
-      2010, "New York"
+      "Smith", "01/01/1900", "1234567890", "New York"
     );
     const bobDylan = new User(
       "example", "password", "example@email.com", "Bob",
-      "Dylan", "01/01/1900", "1234567890",
-      "assets/gettyimages-985138634-612x612.jpg",
-      2010, "New York"
+      "Dylan", "01/01/1900", "1234567890", "New York"
     );
     this.users.push(johnDoe);
     const sampleReview1 = new UserReview(bobDylan, johnDoe,
@@ -78,7 +72,8 @@ export class Data {
       "Norwood, Massachusetts",
       ["assets/2L6A5804-HDR-Mail-altrd_1_-_small.webp"],
       janeSmith,
-      "$50/night"
+      "$50/night",
+      1
     );
     this.addRental(save1);
     johnDoe.saveHome(save1);

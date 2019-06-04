@@ -25,6 +25,7 @@ export class RegisterPage implements OnInit {
     const username: string = (<HTMLInputElement>document.getElementById('usn')).value;
     const password: string = (<HTMLInputElement>document.getElementById('pw')).value;
     const birthday: string = (<HTMLInputElement>document.getElementById('bday')).value;
+    const location: string = "planet Earth";
     const taken: boolean = this.data.getData().find(username);
     if (!taken) {
       this.data.getData().addUser(new User(
@@ -34,10 +35,8 @@ export class RegisterPage implements OnInit {
         firstName, 
         lastName,
         birthday, 
-        phone, 
-        "assets/631929649c.svg", 
-        (new Date()).getFullYear(),
-        "United States"
+        phone,
+        location
       ));
       this.navctrl.navigateForward('/tabs/tab4');
     }

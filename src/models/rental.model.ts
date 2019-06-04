@@ -2,13 +2,12 @@ import { User } from './user.model';
 
 export class Rental {
 
-  public id: number;
-
   constructor(private name: string, 
     private location: string,
     private pictureSources: Array<string>,
     private host: User,
-    private price: string) {}
+    private price: string,
+    public id: number) {}
 
     getLocation() { return this.location; }
 

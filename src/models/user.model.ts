@@ -10,6 +10,8 @@ export class User {
   private bookings: Array<Trip>;
   private saved: Array<Rental>;
   private messages: Array<Message>;
+  private photoSource: string;
+  private yearJoined: number;
 
   constructor(private username: string, 
     private password: string,
@@ -18,14 +20,13 @@ export class User {
     private lastName: string,
     private birthday: string,
     private phone: string,
-    private photoSource: string,
-    private yearJoined: number,
     private location: string) {
       this.numBookings = 0;
       this.reviews = new Array();
       this.bookings = new Array();
       this.saved = new Array();
       this.messages = new Array();
+      this.photoSource = "assets/631929649c.svg";
     }
 
     addReview(review: UserReview) {
@@ -58,9 +59,9 @@ export class User {
 
     getPhone() { return this.phone; }
 
-    getPhotoSource() { return this.photoSource; }
-
     getYearJoined() { return this.yearJoined; }
+
+    getPhotoSource() { return this.photoSource; }
 
     getNumBookings() { return this.numBookings; }
 
