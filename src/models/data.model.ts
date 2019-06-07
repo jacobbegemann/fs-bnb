@@ -148,6 +148,17 @@ export class Data {
     })
   }
 
+  book(data: any): Promise<boolean> {
+    return new Promise((resolve) => {
+      this.client.post(`http://localhost:3000/properties/${data.rentalID}/bookings`, data)
+        .subscribe(
+          (response) => resolve(true), (err: HttpErrorResponse) => {
+            console.log(err);
+            resolve(false);
+          });
+    });
+  }
+
   addFieldsNotRequired(serverResponseObject: ServerUserObject,
     clientUserObject: User) {
     const numBookings: number = serverResponseObject.numBookings;

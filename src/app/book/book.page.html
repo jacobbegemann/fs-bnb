@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Booking Request</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content-parent">
+    <div class="content-area">
+      <div *ngIf="!bookDone">
+        <ion-list>
+          <ion-item>
+            <ion-label>Select start date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="DD MMMM YYYY" id="start"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label>Select end date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="DD MMMM YYYY" id="end"></ion-datetime>
+          </ion-item>
+        </ion-list>
+        <ion-button expand="block" (click)="book()">Finish</ion-button>
+      </div>
+      <div *ngIf="bookDone">
+          <h3>Your booking has been requested.</h3>
+          <ion-button expand="block" (click)="navHome()">Back to Your Listings</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

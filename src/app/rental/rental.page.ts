@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-rental',
@@ -17,7 +18,8 @@ export class RentalPage implements OnInit {
   public found: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private dataService: DataService) { }
+    private dataService: DataService,
+    private ctrl: NavController) { }
 
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe(
@@ -42,6 +44,15 @@ export class RentalPage implements OnInit {
     }, (onreject) => {
       this.found = false;
     })
+  }
+
+  navToBook() {
+    this.activatedRoute.queryParamMap.subscribe(
+      (data: any) => {
+        this.ctrl.navigateForward('/book', 
+        {queryParams: {rentalID: data.params.rentalID}});
+      }
+    )
   }
 
 }
