@@ -27,17 +27,21 @@ export class RentalPage implements OnInit {
     )
   }
 
-  find(rentalID: number) {
-    this.dataService.getData().getRentals().forEach((item) => {
-      if (item.id == rentalID) {
-        this.found = true;
-        this.location = item.getLocation();
-        this.coverPhoto = item.getCoverPhoto();
-        this.name = item.getName();
-        this.hostName = `${item.getHost().getFirstName()} ${item.getHost().getLastName()}`;
-        this.email = item.getEmail();
-      } 
-    });
+  async find(rentalID: number) {
+    this.dataService.getData().getRental(rentalID).then((value) => {
+      this.location = value.getLocation();
+      this.coverPhoto = value.getCoverPhoto();
+      this.name = value.getName();
+      this.dataService
+        .getData()
+        .getUserByIdUnproteted(value.getHost()).then((hostUser) => {
+          this.hostName = `${hostUser.getFirstName()} ${hostUser.getLastName()}`;
+          this.email = hostUser.getEmail();
+          this.found = true;
+        });
+    }, (onreject) => {
+      this.found = false;
+    })
   }
 
 }

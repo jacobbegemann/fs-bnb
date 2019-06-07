@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Trip } from 'src/models/trip.model';
 import { DataService } from '../services/data.service';
+import { User } from 'src/models/user.model';
 
 @Component({
   selector: 'app-tab5',
@@ -14,10 +15,11 @@ export class Tab5Page implements OnInit {
 
   constructor(private navctrl: NavController, 
     private dataService: DataService) { 
-    this.trips = dataService.getData().peekUser().getBookings();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const user: User = await this.dataService.getData().activeUser();
+    this.trips = user.getBookings();
   }
 
   goToRental(trip: Trip) {

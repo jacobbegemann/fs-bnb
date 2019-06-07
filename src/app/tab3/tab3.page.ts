@@ -16,8 +16,8 @@ export class Tab3Page {
     
   }
 
-  ngOnInit() {
-    const user: User = this.dataService.getData().peekUser();
+  async ngOnInit() {
+    const user: User = await this.dataService.getData().activeUser();
     this.messages = user.getMessages();
   }
 

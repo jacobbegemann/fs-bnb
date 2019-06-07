@@ -13,9 +13,11 @@ export class Tab2Page {
 
   public saved: Array<Rental>;
 
-  constructor(private navctrl: NavController, 
-    private dataService: DataService) {
-    const user: User = dataService.getData().peekUser();
+  constructor(private navctrl: NavController,
+    private dataService: DataService) { }
+
+  async ngOnInit() {
+    const user: User = await this.dataService.getData().activeUser();
     this.saved = user.getSaved();
   }
 
@@ -26,7 +28,7 @@ export class Tab2Page {
   goToRental(rental: Rental) {
     this.navctrl.navigateForward(
       'rental',
-      {queryParams: {rentalID: rental.id}}
+      { queryParams: { rentalID: rental.id } }
     );
   }
 

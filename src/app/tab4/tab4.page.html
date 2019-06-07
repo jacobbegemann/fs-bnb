@@ -9,20 +9,16 @@
     <div class="content-area">
       <h3>Explore Homes</h3>
       <ion-item-divider></ion-item-divider>
-      <ion-list>
-        <ion-item *ngFor="let item of rentals"> 
-          <ion-card (click)="goToRental(item)">
-            <ion-card-header>
-              <ion-card-subtitle>{{item.host.firstName}} {{item.host.lastName}}</ion-card-subtitle>
-              <img src="{{item.getCoverPhoto()}}">
-              <ion-card-title>{{item.location}}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              {{item.name}}
-            </ion-card-content>
-          </ion-card>
-        </ion-item>
-      </ion-list>
+      <ion-card *ngFor="let item of rentals" (click)="goToRental(item)">
+        <ion-card-header>
+          <ion-card-subtitle>{{item.hostName}}</ion-card-subtitle>
+          <img src="{{item.getCoverPhoto()}}">
+          <ion-card-title>{{item.location}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{item.name}}
+        </ion-card-content>
+      </ion-card>
     </div>
   </div>
 </ion-content>

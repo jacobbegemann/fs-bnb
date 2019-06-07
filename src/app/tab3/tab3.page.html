@@ -10,7 +10,7 @@
   <div class="content-parent">
     <div class="content-area">
       <h3>Your inbox</h3>
-      <p id="nnm">You have {{messages.length}} new messages.</p>
+      <p id="nnm" *ngIf="messages">You have {{messages.length}} new messages.</p>
       <ion-item-divider></ion-item-divider>
       <div class="messages-area">
         <ion-list>

@@ -14,10 +14,10 @@ export class Tab4Page implements OnInit {
 
   constructor(private data: DataService,
     private navctrl: NavController) { 
-    this.rentals = data.getData().getRentals();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.rentals = await this.data.getData().getRentals();
   }
 
   goToRental(rental: Rental) {

@@ -5,6 +5,7 @@ import { Trip } from './trip.model';
 
 export class User {
 
+  private id: number;
   private numBookings: number;
   private reviews: Array<UserReview>;
   private bookings: Array<Trip>;
@@ -13,9 +14,8 @@ export class User {
   private photoSource: string;
   private yearJoined: number;
 
-  constructor(private username: string, 
+  constructor(private email: string,
     private password: string,
-    private email: string,
     private firstName: string,
     private lastName: string,
     private birthday: string,
@@ -45,9 +45,13 @@ export class User {
       this.messages.push(message);
     }
 
+    setYearJoined(year: number) {
+      this.yearJoined = year;
+    }
+
     setPhoto(url: string) { this.photoSource = url; }
 
-    getUsername() { return this.username; }
+    setNumBookings(num: number) { this.numBookings = num; }
 
     getPassword() { return this.password; }
     
@@ -76,5 +80,7 @@ export class User {
     getMessages() { return this.messages; }
 
     getEmail() { return this.email; }
+
+    getId() { return this.id; }
 
 }

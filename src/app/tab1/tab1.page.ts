@@ -19,8 +19,10 @@ export class Tab1Page {
   private photoSource: string;
   private yearJoined: number;
 
-  constructor(private dataService: DataService) {
-    const user: User = dataService.getData().peekUser();
+  constructor(private dataService: DataService) { }
+
+  async ngOnInit() {
+    const user: User = await this.dataService.getData().activeUser();
     this.numReviews = user.getReviews().length;
     this.reviews = user.getReviews();
     this.numBookings = user.getNumBookings();
