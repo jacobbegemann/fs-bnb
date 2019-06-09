@@ -10,16 +10,20 @@
       <h3>Your upcoming trips</h3>
       <ion-item-divider></ion-item-divider>
       <div class="trips-area">
-        <ion-card *ngFor="let trip of trips" (click)="goToRental(trip)">
-          <ion-card-header>
-            <ion-card-subtitle>{{trip.dateFrom}}-{{trip.dateTo}}</ion-card-subtitle>
-            <img *ngIf="trip.rental" src="{{trip.rental.getCoverPhoto()}}">
-            <ion-card-title *ngIf="trip.rental">{{trip.rental.location}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content *ngIf="trip.rental">
-            {{trip.rental.name}}
-          </ion-card-content>
-        </ion-card>
+        <div *ngFor="let trip of trips">
+          <div *ngIf="trip.status == 'ACCEPTED'">
+            <ion-card (click)="goToRental(trip)">
+                <ion-card-header>
+                  <ion-card-subtitle>{{trip.dateFrom}}-{{trip.dateTo}}</ion-card-subtitle>
+                  <img *ngIf="trip.rental" src="{{trip.rental.getCoverPhoto()}}">
+                  <ion-card-title *ngIf="trip.rental">{{trip.rental.location}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content *ngIf="trip.rental">
+                  {{trip.rental.name}}
+                </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
       </div>
       <ion-button expand="block" id="find-homes" (click)="goToExplore()">Explore</ion-button>
     </div>

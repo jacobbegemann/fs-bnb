@@ -20,6 +20,7 @@ export class Tab5Page implements OnInit {
     this.trips = await this.dataService.getData().getBookings(
       parseInt(localStorage.getItem("id"))
     );
+    console.log(this.trips);
     this.trips.forEach(async (value) => {
       value.rental = await this.dataService.getData().getRental(value.rentalID);
     });
