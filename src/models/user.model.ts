@@ -8,11 +8,11 @@ export class User {
   private id: number;
   private numBookings: number;
   private reviews: Array<UserReview>;
-  private bookings: Array<Trip>;
   private saved: Array<Rental>;
   private messages: Array<Message>;
   private photoSource: string;
   private yearJoined: number;
+  private bookings: Array<Trip>;
 
   constructor(private email: string,
     private password: string,
@@ -22,8 +22,8 @@ export class User {
     private phone: string,
     private location: string) {
       this.numBookings = 0;
-      this.reviews = new Array();
       this.bookings = new Array();
+      this.reviews = new Array();
       this.saved = new Array();
       this.messages = new Array();
       this.photoSource = "assets/631929649c.svg";
@@ -72,8 +72,6 @@ export class User {
     getLocation() { return this.location; }
 
     getReviews() { return this.reviews; }
-
-    getBookings() { return this.bookings; }
 
     getSaved() { return this.saved; }
 

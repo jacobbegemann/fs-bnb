@@ -12,11 +12,11 @@
       <div class="trips-area">
         <ion-card *ngFor="let trip of trips" (click)="goToRental(trip)">
           <ion-card-header>
-            <ion-card-subtitle>{{trip.dates}}</ion-card-subtitle>
-            <img src="{{trip.rental.getCoverPhoto()}}">
-            <ion-card-title>{{trip.rental.location}}</ion-card-title>
+            <ion-card-subtitle>{{trip.dateFrom}}-{{trip.dateTo}}</ion-card-subtitle>
+            <img *ngIf="trip.rental" src="{{trip.rental.getCoverPhoto()}}">
+            <ion-card-title *ngIf="trip.rental">{{trip.rental.location}}</ion-card-title>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content *ngIf="trip.rental">
             {{trip.rental.name}}
           </ion-card-content>
         </ion-card>

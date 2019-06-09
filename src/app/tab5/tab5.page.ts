@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Trip } from 'src/models/trip.model';
 import { DataService } from '../services/data.service';
-import { User } from 'src/models/user.model';
 
 @Component({
   selector: 'app-tab5',
@@ -13,18 +12,22 @@ export class Tab5Page implements OnInit {
 
   public trips: Array<Trip>;
 
-  constructor(private navctrl: NavController, 
-    private dataService: DataService) { 
+  constructor(private navctrl: NavController,
+    private dataService: DataService) {
   }
 
   async ngOnInit() {
-    const user: User = await this.dataService.getData().activeUser();
-    this.trips = user.getBookings();
+    this.trips = await this.dataService.getData().getBookings(
+      parseInt(localStorage.getItem("id"))
+    );
+    this.trips.forEach(async (value) => {
+      value.rental = await this.dataService.getData().getRental(value.rentalID);
+    });
   }
 
   goToRental(trip: Trip) {
     this.navctrl.navigateForward('/rental',
-     {queryParams: {rentalID: trip.getRental().id}});
+      { queryParams: { rentalID: trip.rental.id } });
   }
 
   goToExplore() {

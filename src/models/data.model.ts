@@ -159,6 +159,15 @@ export class Data {
     });
   }
 
+  getBookings(id: number): Promise<Trip[]> {
+    return new Promise((resolve) => {
+      this.client.get(`http://localhost:3000/trips/byUser/${id}`)
+        .subscribe((response: Trip[]) => {
+          resolve(response);
+        })
+    });
+  }
+
   addFieldsNotRequired(serverResponseObject: ServerUserObject,
     clientUserObject: User) {
     const numBookings: number = serverResponseObject.numBookings;
